@@ -2,9 +2,9 @@
 
 if [ "$USER" = "root" ]
 then
-	PROMPT='%B%(?..[%?] )%b%{$fg_bold[red]%}>%{$reset_color%} '
+	PROMPT='%B%(?..[%?])%b%{$fg_bold[red]%}❯%{$reset_color%} '
 else
-	PROMPT='%B%(?..[%?] )%b> '
+	PROMPT='%B%(?..[%?])%b❯ '
 fi
 RPROMPT='%{$fg[green]%}%~%{$reset_color%}@%{$fg[yellow]%}$(hostname)%{$reset_color%} $(git_prompt_info)'
 
