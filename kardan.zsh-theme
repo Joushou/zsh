@@ -5,11 +5,12 @@ GREENPROMPT='%B%(?..[%?])%b%{$fg_bold[green]%}❯%{$reset_color%} '
 WHITEPROMPT='%B%(?..[%?])%b%{$fg_bold[white]%}❯%{$reset_color%} '
 BLUEPROMPT='%B%(?..[%?])%b%{$fg_bold[blue]%}❯%{$reset_color%} '
 
-RPROMPT='%{$fg[green]%}%~%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%} $(git_prompt_info)'
+function kardan_git_info() {
+   ref=$(git symbolic-ref --short HEAD 2>/dev/null)
+   [[ $ref != "" ]] && echo " [$ref]"
+}
 
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_PREFIX="["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+RPROMPT='%{$fg[green]%}%~%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%}$(kardan_git_info)'
 
 if [ "$USER" = "root" ]
 then
